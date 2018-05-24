@@ -6,8 +6,6 @@ name = "pypi"
 [dev-packages]
 
 [packages]
-flask = "*"
-requests = "*"
 
 [requires]
 python_version = "3.4"
