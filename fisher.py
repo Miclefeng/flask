@@ -42,12 +42,12 @@
 #        res = FisherBook.search_by_keyword(q)
     # return json.dumps(result), 200, {'content-type' : 'application/json'}
 #    return jsonify(res)
-from app import create_app
+from app import init_app
 
-app = create_app()
+app = init_app()
 
 # if __name__ 只在自己模块中才能运行
 if __name__ == '__main__':
     # host 指定host地址
     # 生产环境 nginx+uwsgi 作为服务器,与app.run()服务器产生冲突
-    app.run(host='0.0.0.0', debug=app.config['DEBUG'], port=8002)
+    app.run(host='0.0.0.0', debug=app.config['DEBUG'], port=5000)

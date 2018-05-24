@@ -10,7 +10,7 @@ def is_isbn_or_kw(word):
 # isbn13 13个数字组成
 # isbn10 10个数字组成，可能含有
     isbn_or_kw = 'kw' # isbn or 关键字
-    if 13 == len(kw) and word.isdigit():
+    if 13 == len(word) and word.isdigit():
         isbn_or_kw = 'isbn'
     else:
         short_word = word.replace('-', '')

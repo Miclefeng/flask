@@ -5,7 +5,7 @@
 # Created Time: Thu 24 May 2018 10:33:41 PM CST
 #=============================================================
 # coding:utf8
-from http import HTTP
+from uhttp import HTTP
 
 class FisherBook:
     isbn_url = "http://t.yushu.im/v2/book/isbn/{}"
