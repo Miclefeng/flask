@@ -14,6 +14,6 @@ def init_app():
     register_blueprint(app)
     return app
 
-def register_blueprint(app):
+def register_blueprint(applaction):
     from app.web.book import web
-    app.register_blueprint(web)
+    applaction.register_blueprint(web)
