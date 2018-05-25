@@ -13,6 +13,7 @@ from urllib.parse import quote
 from flask import json
 import requests
 
+
 class HTTP:
 
     @staticmethod
@@ -30,6 +31,6 @@ class HTTP:
             with request.urlopen(url) as r:
                 res_str = r.read()
                 res_str = str(res_str, encoding='utf-8')
-            return json.loads(res_str) if json_return else res.str
+            return json.loads(res_str) if json_return else res_str
         except OSError as e:
             return {} if json_return else None
