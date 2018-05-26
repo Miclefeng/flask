@@ -1,9 +1,11 @@
-###############################################################
-# File Name: config.py
+#=============================================================
+# File Name: user.py
 # Author: miclefeng
 # mail: miclefengzss@163.com
-# Created Time: Wed 23 May 2018 10:08:32 PM CST
+# Created Time: 2018/5/26 17:55
 #=============================================================
 # coding:utf8
 
 DEBUG = True
+
+PAGESIZE = 15

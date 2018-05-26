@@ -5,9 +5,12 @@
 # Created Time: Thu 24 May 2018 10:33:41 PM CST
 #=============================================================
 # coding:utf8
+from flask import current_app
 from uhttp import HTTP
 
+
 class FisherBook:
+    pagesize = 15
     isbn_url = "http://t.yushu.im/v2/book/isbn/{}"
     keyword_url = "http://t.yushu.im/v2/book/search?q={}&count={}&start={}"
 
@@ -18,7 +21,11 @@ class FisherBook:
         return res
 
     @classmethod
-    def search_by_keyword(cls, keyword, count=15, start=0):
-        url = cls.keyword_url.format(keyword, count, start)
+    def search_by_keyword(cls, keyword, page=1):
+        url = cls.keyword_url.format(keyword, current_app.config['PAGESIZE'], cls.calculate_start(page))
         res = HTTP.get(url)
         return res
+
+    @staticmethod
+    def calculate_start(page):
+        return (page - 1) * current_app.config['PAGESIZE']
