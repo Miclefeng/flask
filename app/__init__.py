@@ -7,6 +7,7 @@
 # coding:utf8
 
 from flask import Flask
+from app.models.book import db
 
 
 def init_app():
@@ -14,6 +15,10 @@ def init_app():
     app.config.from_object('app.secure')
     app.config.from_object('app.setting')
     register_blueprint(app)
+
+    # 把 DB 注册到APP上
+    db.init_app(app)
+    db.create_all()
     return app
 
 def register_blueprint(applaction):

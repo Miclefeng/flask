@@ -6,7 +6,7 @@
 #=============================================================
 # coding:utf8
 from flask import current_app
-from uhttp import HTTP
+from app.libs.httper import HTTP
 
 
 class FisherBook:
