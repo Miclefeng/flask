@@ -7,4 +7,3 @@
 # coding:utf8
 
 DEBUG = True
-SQLALCHEMY_DATABASE_URI = 'mysql+cymysql://root:zss5494946@localhost:3306/fisher'
