@@ -18,7 +18,7 @@ def init_app():
 
     # 把 DB 注册到APP上
     db.init_app(app)
-    db.create_all()
+    db.create_all(app=app)
     return app
 
 def register_blueprint(applaction):
