@@ -13,6 +13,17 @@ from app.spider.fisher_book import FisherBook
 from . import web
 
 
+@web.route('/test')
+def test():
+    from app.libs.none_local import n
+    from flask import request
+    print(n.v)
+    n.v = 2
+    print('-------------------')
+    print(getattr(request, 'v', None))
+    setattr(request, 'v', 2)
+    return ''
+
 @web.route('/book/search/<q>/<page>')
 def search(q, page):
     """
