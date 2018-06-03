@@ -50,4 +50,4 @@ app = init_app()
 if __name__ == '__main__':
     # host 指定host地址
     # 生产环境 nginx+uwsgi 作为服务器,与app.run()服务器产生冲突
-    app.run(host='0.0.0.0', debug=app.config['DEBUG'], port=5000)
+    app.run(host='0.0.0.0', debug=app.config['DEBUG'], port=5000, threaded=True)
