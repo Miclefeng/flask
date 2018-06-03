@@ -33,7 +33,7 @@ def search(q, page):
     form = SearchForm(request.args)
     if form.validate():
         q = form.q.data.strip()
-        pqge = form.page.data
+        page = form.page.data
         isbn_or_key = is_isbn_or_kw(q)
         if 'isbn' == isbn_or_key:
             res = FisherBook.search_by_isbn(q)
