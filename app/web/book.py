@@ -5,11 +5,12 @@
 # Created Time: Thu 24 May 2018 11:25:30 PM CST
 #=============================================================
 # coding:utf8
-
+import json
 from flask import jsonify, request
 from app.forms.book import SearchForm
 from app.libs.helper import is_isbn_or_kw
 from app.spider.fisher_book import FisherBook
+from app.view_models.book import BookCollection
 from . import web
 
 
@@ -53,15 +54,22 @@ def find():
     # page = request.args['page']
     # 参数校验，验证层
     form = SearchForm(request.args)
+    books = BookCollection()
+
     if form.validate():
         q = form.q.data.strip()
         page = form.page.data
         isbn_or_key = is_isbn_or_kw(q)
+        fisher_book = FisherBook()
+
         if 'isbn' == isbn_or_key:
-            res = FisherBook.search_by_isbn(q)
+            fisher_book.search_by_isbn(q)
         else:
-            res = FisherBook.search_by_keyword(q)
-        return jsonify(res)
+            fisher_book.search_by_keyword(q, page)
+
+        books.fill(fisher_book, q)
+        return json.dumps(books, default=lambda o: o.__dict__)
+        # return jsonify(books)
     else:
         return jsonify(form.errors)
 
