@@ -15,7 +15,7 @@ from . import web
 
 
 @web.route('/test1')
-def test():
+def test1():
     from app.libs.none_local import n
     from flask import request
     print(n.v)
