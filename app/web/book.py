@@ -6,7 +6,7 @@
 #=============================================================
 # coding:utf8
 import json
-from flask import jsonify, request
+from flask import jsonify, request, render_template
 from app.forms.book import SearchForm
 from app.libs.helper import is_isbn_or_kw
 from app.spider.fisher_book import FisherBook
@@ -14,7 +14,7 @@ from app.view_models.book import BookCollection
 from . import web
 
 
-@web.route('/test')
+@web.route('/test1')
 def test():
     from app.libs.none_local import n
     from flask import request
@@ -72,4 +72,13 @@ def find():
         # return jsonify(books)
     else:
         return jsonify(form.errors)
+
+@web.route('/test')
+def test():
+    r = {
+        'name': 'Miclefeng',
+        'age': 26
+    }
+
+    return render_template('test.html', data=r)
 
