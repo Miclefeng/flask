@@ -79,6 +79,6 @@ def test():
         'name': 'Miclefeng',
         'age': 26
     }
-
+    # 模板html
     return render_template('test.html', data=r)
 
