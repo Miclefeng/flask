@@ -8,7 +8,7 @@
 from flask import Blueprint
 
 # 蓝图 blueprint
-web = Blueprint('web', __package__)
+web = Blueprint('web', __package__, template_folder='../templates')
 
 from app.web import book
 from app.web import user
