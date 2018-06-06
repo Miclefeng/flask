@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block content %}
     {{data.name}} {{data.age}}
-    {% with messages = get_flashed_messages(category=['error']) %}
+    {% with messages = get_flashed_messages(category_filter=['error']) %}
         {{ messages }}
     {% endwith %}
 {% endblock %}
