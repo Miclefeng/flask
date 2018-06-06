@@ -25,8 +25,8 @@ def test1():
     setattr(request, 'v', 2)
     return ''
 
-@web.route('/book/search/<q>/<page>')
-def search(q, page):
+@web.route('/book/search')
+def search():
     """
         q : keyword or isbn
         page
@@ -68,10 +68,11 @@ def find():
             fisher_book.search_by_keyword(q, page)
 
         books.fill(fisher_book, q)
-        return json.dumps(books, default=lambda o: o.__dict__)
+        # return json.dumps(books, default=lambda o: o.__dict__)
         # return jsonify(books)
     else:
         return jsonify(form.errors)
+    return render_template('search_result.html', books=books)
 
 @web.route('/test')
 def test():
