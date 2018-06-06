@@ -71,7 +71,8 @@ def find():
         # return json.dumps(books, default=lambda o: o.__dict__)
         # return jsonify(books)
     else:
-        return jsonify(form.errors)
+        flash('搜索的关键字不符合要求，请重新输入')
+        # return jsonify(form.errors)
     return render_template('search_result.html', books=books)
 
 @web.route('/test')
