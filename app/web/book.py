@@ -6,7 +6,7 @@
 #=============================================================
 # coding:utf8
 import json
-from flask import jsonify, request, render_template
+from flask import jsonify, request, render_template, flash
 from app.forms.book import SearchForm
 from app.libs.helper import is_isbn_or_kw
 from app.spider.fisher_book import FisherBook
@@ -79,6 +79,7 @@ def test():
         'name': 'Miclefeng',
         'age': 26
     }
+    flash('hello,miclefengzss', category='error')
     # 模板html
     return render_template('test.html', data=r)
 
