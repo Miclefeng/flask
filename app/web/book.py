@@ -83,3 +83,7 @@ def test():
     # 模板html
     return render_template('test.html', data=r)
 
+@web.route('/book/<isbn>/detail')
+def book_detail(isbn):
+    pass
+
