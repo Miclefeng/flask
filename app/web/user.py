@@ -8,5 +8,5 @@
 from . import web
 
 @web.route('/url')
-def login():
+def url():
     pass
