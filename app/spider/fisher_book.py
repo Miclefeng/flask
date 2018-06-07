@@ -17,6 +17,10 @@ class FisherBook:
         self.total = 0
         self.books = []
 
+    @property
+    def first(self):
+        return self.books[0] if self.total >= 1 else None
+
     def search_by_isbn(self, isbn):
         url = self.isbn_url.format(isbn)
         res = HTTP.get(url)

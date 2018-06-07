@@ -89,6 +89,6 @@ def test():
 def book_detail(isbn):
     fisher_book = FisherBook()
     fisher_book.search_by_isbn(isbn)
-    book = BookViewModel(fisher_book.books[0])
+    book = BookViewModel(fisher_book.first)
     return render_template('book_detail.html', book=book, wishes=[], gifts=[])
 
