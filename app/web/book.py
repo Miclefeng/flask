@@ -90,5 +90,5 @@ def book_detail(isbn):
     fisher_book = FisherBook()
     fisher_book.search_by_isbn(isbn)
     book = BookViewModel(fisher_book.books[0])
-    return render_template('book_detail.html', book=book)
+    return render_template('book_detail.html', book=book, wishes=[], gifts=[])
 
