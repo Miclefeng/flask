@@ -22,7 +22,7 @@ class BookViewModel:
     def intro(self):
         intros = filter(lambda x: True if x else False,
                         [self.author, self.publisher, self.price])
-        return ' / '.join(intros)
+        return ' / '.join([str(x) for x in intros])
 
 
 class BookCollection:
