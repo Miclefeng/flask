@@ -10,7 +10,7 @@ from flask import jsonify, request, render_template, flash
 from app.forms.book import SearchForm
 from app.libs.helper import is_isbn_or_kw
 from app.spider.fisher_book import FisherBook
-from app.view_models.book import BookCollection
+from app.view_models.book import BookCollection, BookViewModel
 from . import web
 
 
@@ -87,5 +87,8 @@ def test():
 
 @web.route('/book/<isbn>/detail')
 def book_detail(isbn):
-    pass
+    fisher_book = FisherBook()
+    fisher_book.search_by_isbn(isbn)
+    book = BookViewModel(fisher_book.books[0])
+    return render_template('book_detail.html', book=book)
 

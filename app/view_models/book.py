@@ -18,6 +18,7 @@ class BookViewModel:
         self.image = fisher_book['image']
 
     # 使用属性访问的方式调用函数
+    # 数据描述对象的特征，方法描述对象的行为
     @property
     def intro(self):
         intros = filter(lambda x: True if x else False,
