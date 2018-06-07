@@ -7,7 +7,7 @@
 # coding:utf8
 
 from flask import Flask
-# from app.models.book import db
+from app.models.base import db
 
 
 def init_app():
@@ -17,10 +17,10 @@ def init_app():
     register_blueprint(app)
 
     # 把 DB 注册到APP上
-    # db.init_app(app)
-    # db.create_all(app=app)
-    # with app.app_context():
-    #    db.create_all()
+    db.init_app(app)
+    db.create_all(app=app)
+    with app.app_context():
+       db.create_all()
     return app
 
 def register_blueprint(applaction):
