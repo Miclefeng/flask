@@ -17,6 +17,13 @@ class BookViewModel:
         self.summary = fisher_book['summary']
         self.image = fisher_book['image']
 
+    # 使用属性访问的方式调用函数
+    @property
+    def intro(self):
+        intros = filter(lambda x: True if x else False,
+                        [self.author, self.publisher, self.price])
+        return ' / '.join(intros)
+
 
 class BookCollection:
     def __init__(self):
