@@ -7,7 +7,7 @@
 # coding:utf8
 
 from sqlalchemy.orm import relationship
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 from app.models.base import Base
 from sqlalchemy import Column, Integer, String, Boolean, Float
 
@@ -39,3 +39,6 @@ class User(Base):
     @password.setter
     def password(self, raw):
         self._password = generate_password_hash(raw)
+
+    def check_password(self, raw):
+        return check_password_hash(self._password, raw)

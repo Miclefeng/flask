@@ -8,7 +8,9 @@
 
 from flask import Flask
 from app.models.base import db
+from flask_login import LoginManager
 
+login_manager = LoginManager()
 
 def init_app():
     app = Flask(__name__, static_folder='static')
@@ -16,6 +18,7 @@ def init_app():
     app.config.from_object('app.setting')
     register_blueprint(app)
 
+    login_manager.init_app(app)
     # 把 DB 注册到APP上
     db.init_app(app)
     db.create_all(app=app)
