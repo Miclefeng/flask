@@ -1,4 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash
+from flask_login import login_user
+
 from app.forms.auth import RegisterForm, LoginForm
 from app.models.base import db
 from app.models.user import User
@@ -23,6 +25,8 @@ def login():
     if 'POST' == request.method and form.validate():
         user = User.query.filter_by(email=form.email.data).first()
         if user and user.check_password(form.password.data):
+            # 要求在用户模型内部定义一个get_id()
+            login_user(user)
             pass
         else :
             flash('账号不存在或密码错误')

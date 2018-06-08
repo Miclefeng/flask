@@ -5,14 +5,14 @@
 # Created Time: 2018/6/7 23:07
 #=============================================================
 # coding:utf8
-
+from flask_login import UserMixin
 from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.models.base import Base
 from sqlalchemy import Column, Integer, String, Boolean, Float
 
 
-class User(Base):
+class User(UserMixin, Base):
     # 设置表名
     __tablename__ = 'user'
 
