@@ -7,7 +7,6 @@
 # coding:utf8
 from wtforms import Form, StringField, PasswordField
 from wtforms.validators import DataRequired, Length, Email, ValidationError
-
 from app.models.user import User
 
 
