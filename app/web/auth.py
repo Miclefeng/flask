@@ -1,5 +1,6 @@
 from flask import render_template, request
 from app.forms.auth import RegisterForm
+from app.models.base import db
 from app.models.user import User
 from . import web
 
@@ -10,6 +11,8 @@ def register():
     if 'POST' == request.method and form.validate():
         user = User()
         user.set_attrs(form.data)
+        db.session.add(user)
+        db.session.commit()
     return render_template('auth/register.html', form={'data': {}})
 
 
