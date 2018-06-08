@@ -15,7 +15,7 @@ def register():
         user.set_attrs(form.data)
         db.session.add(user)
         db.session.commit()
-        redirect(url_for('web.login'))
+        return redirect(url_for('web.login'))
     return render_template('auth/register.html', form=form)
 
 
@@ -27,7 +27,10 @@ def login():
         if user and user.check_password(form.password.data):
             # 要求在用户模型内部定义一个get_id()
             login_user(user, remember=True)
-            pass
+            next = request.args.get('next')
+            if not next and next.startswith('/'):
+                next = url_for('web.index')
+            return redirect(next)
         else :
             flash('账号不存在或密码错误')
 
