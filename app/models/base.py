@@ -8,6 +8,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, SmallInteger
 
+
 db = SQLAlchemy()
 
 class Base(db.Model):
