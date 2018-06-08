@@ -19,5 +19,6 @@ class RegisterForm(Form):
     nickname = StringField(validators=[DataRequired(), Length(2, 12, message='昵称至少为2个字符，至多12个字符')])
 
     def validate_email(self, field):
-        if User.query.filter_by(email=field.data):
+        # db.session.
+        if User.query.filter_by(email=field.data).first():
             raise ValidationError('邮箱已被注册')
