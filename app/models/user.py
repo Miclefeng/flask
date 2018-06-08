@@ -24,7 +24,9 @@ class User(Base):
     beans = Column(Float, default=0)
     send_counter = Column(Integer, default=0)
     receive_counter = Column(Integer, default=0)
-    _password = Column('password', String(64))
+    _password = Column('password', String(128))
+    wx_open_id = Column(String(48))
+    wx_name = Column(String(32))
     # gifts = relationship('Gift')
 
     # 数据的预处理 getter setter
