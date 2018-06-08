@@ -24,5 +24,5 @@ class RegisterForm(Form):
 
     def validate_nickname(self, field):
         # db.session.
-        if User.query.filter_by(email=field.data).first():
+        if User.query.filter_by(nickname=field.data).first():
             raise ValidationError('用户昵称已被注册')
