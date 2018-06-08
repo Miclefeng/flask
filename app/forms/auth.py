@@ -11,7 +11,7 @@ from app.models.user import User
 
 
 class LoginForm(Form):
-    email = StringField(validators=[DataRequired(), Length(8, 64), Email(message='电子邮箱不符合规范')])
+    email = StringField(validators=[DataRequired(message='邮箱不能为空'), Length(8, 64), Email(message='电子邮箱不符合规范')])
 
     password = PasswordField(validators=[DataRequired(message='密码不能为空'), Length(6, 24)])
 
