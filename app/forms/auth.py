@@ -6,7 +6,9 @@
 #=============================================================
 # coding:utf8
 from wtforms import Form, StringField, PasswordField
-from wtforms.validators import DataRequired, Length, Email
+from wtforms.validators import DataRequired, Length, Email, ValidationError
+
+from app.models.user import User
 
 
 class RegisterForm(Form):
@@ -15,3 +17,7 @@ class RegisterForm(Form):
     password = PasswordField(validators=[DataRequired(message='密码不能为空'), Length(6, 24)])
 
     nickname = StringField(validators=[DataRequired(), Length(2, 12, message='昵称至少为2个字符，至多12个字符')])
+
+    def validate_email(self, field):
+        if User.query.filter_by(email=field.data):
+            raise ValidationError('邮箱已被注册')

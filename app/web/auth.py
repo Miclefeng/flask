@@ -13,7 +13,7 @@ def register():
         user.set_attrs(form.data)
         db.session.add(user)
         db.session.commit()
-    return render_template('auth/register.html', form={'data': {}})
+    return render_template('auth/register.html', form=form.data)
 
 
 @web.route('/login', methods=['GET', 'POST'])
