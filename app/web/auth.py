@@ -26,7 +26,7 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and user.check_password(form.password.data):
             # 要求在用户模型内部定义一个get_id()
-            login_user(user)
+            login_user(user, remember=True)
             pass
         else :
             flash('账号不存在或密码错误')
