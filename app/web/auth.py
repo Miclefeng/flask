@@ -1,5 +1,4 @@
 from flask import render_template, request
-
 from app.forms.auth import RegisterForm
 from app.models.user import User
 from . import web
