@@ -30,10 +30,12 @@ class User(Base):
     # gifts = relationship('Gift')
 
     # 数据的预处理 getter setter
+    # 属性的读取
     @property
     def password(self):
         return self._password
 
+    # 属性的写入
     @password.setter
     def password(self, raw):
         self._password = generate_password_hash(raw)
