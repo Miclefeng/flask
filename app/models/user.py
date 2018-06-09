@@ -8,9 +8,14 @@
 from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import login_manager
+from app.libs.helper import is_isbn_or_kw
 from app.models.base import Base
 from sqlalchemy import Column, Integer, String, Boolean, Float
 from flask_login import UserMixin
+
+from app.models.gift import Gift
+from app.models.wish import Wish
+from app.spider.fisher_book import FisherBook
 
 
 class User(UserMixin, Base):
@@ -43,6 +48,26 @@ class User(UserMixin, Base):
 
     def check_password(self, raw):
         return check_password_hash(self._password, raw)
+
+    def can_save_to_list(self, isbn):
+        if is_isbn_or_kw(isbn) != 'isbn':
+            return False
+        fisher_book =FisherBook()
+        fisher_book.search_by_isbn(isbn)
+        if not fisher_book.first:
+            return False
+
+        # 不允许用户同时赠送多本相同的图书
+        gifting = Gift.query.filter_by(uid=self.id, isbn=isbn, launched=False).first()
+
+        # 一个用户不能同时为赠送者和索要者
+        wishing = Wish.query.filter_by(uid=self.id, isbn=isbn, launched=False).first()
+
+        # 既不在赠送清单，也不在心愿清单
+        if not gifting and not wishing:
+            return True
+        else:
+            return False
 
 
 @login_manager.user_loader
