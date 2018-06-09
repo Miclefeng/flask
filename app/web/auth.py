@@ -28,7 +28,7 @@ def login():
             # 要求在用户模型内部定义一个get_id()
             login_user(user, remember=True)
             next = request.args.get('next')
-            if not next and next.startswith('/'):
+            if not next or next.startswith('/'):
                 next = url_for('web.index')
             return redirect(next)
         else :
