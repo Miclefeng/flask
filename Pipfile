@@ -12,6 +12,7 @@ sqlalchemy = "*"
 flask-sqlalchemy = "*"
 cymysql = "*"
 pymysql = "*"
+flask-login = "*"
 
 [dev-packages]
 
