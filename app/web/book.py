@@ -12,6 +12,9 @@ from app.libs.helper import is_isbn_or_kw
 from app.spider.fisher_book import FisherBook
 from app.view_models.book import BookCollection, BookViewModel
 from . import web
+from app.models.gift import Gift
+from app.models.wish import Wish
+from app.view_models.trade import TradeInfo
 
 
 @web.route('/test1')
@@ -87,8 +90,18 @@ def test():
 
 @web.route('/book/<isbn>/detail')
 def book_detail(isbn):
+    has_in_gifts = False
+    has_in_wishes = False
+
+    # 取书籍详情书籍
     fisher_book = FisherBook()
     fisher_book.search_by_isbn(isbn)
     book = BookViewModel(fisher_book.first)
-    return render_template('book_detail.html', book=book, wishes=[], gifts=[])
+
+    trade_gifts = Gift.query.filter_by(isbn=isbn, launched=False).all()
+    trade_wishes = Wish.query.filter_by(isbn=isbn, launched=False).all()
+
+    trade_wishes_model = TradeInfo(trade_wishes)
+    trade_gifts_model = TradeInfo(trade_gifts)
+    return render_template('book_detail.html', book=book, wishes=trade_wishes_model, gifts=trade_gifts_model)
 
