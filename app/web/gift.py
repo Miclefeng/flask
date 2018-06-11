@@ -1,4 +1,4 @@
-from flask import current_app, redirect
+from flask import current_app, redirect, flash
 from app.models.base import db
 from app.models.gift import Gift
 from . import web
