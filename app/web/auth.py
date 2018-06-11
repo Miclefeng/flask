@@ -16,7 +16,7 @@ def register():
             user.set_attrs(form.data)
             db.session.add(user)
             # db.session.commit()
-        return redirect(url_for('web.login'))
+        return redirect(url_for('web.login', _external=True))
     return render_template('auth/register.html', form=form)
 
 
@@ -31,7 +31,7 @@ def login():
             next = request.args.get('next')
             if not next or next.startswith('/'):
                 next = url_for('web.index')
-            return redirect(next)
+            return redirect(next, _external=True)
         else :
             flash('账号不存在或密码错误')
 
