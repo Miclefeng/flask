@@ -5,9 +5,20 @@
 # Created Time: 2018/6/7 23:06
 #=============================================================
 # coding:utf8
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy as _SQLALchemy
 from sqlalchemy import Column, Integer, SmallInteger
+from contextlib import contextmanager
 
+
+class SQLALchemy(_SQLALchemy):
+	@contextmanager
+	def auto_commit(self):
+		try:
+			yield
+			self.session.commit()
+		except Exception as e:
+			self.session.rollback()
+			raise e
 
 db = SQLAlchemy()
 

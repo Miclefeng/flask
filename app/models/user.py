@@ -12,7 +12,6 @@ from app.libs.helper import is_isbn_or_kw
 from app.models.base import Base
 from sqlalchemy import Column, Integer, String, Boolean, Float
 from flask_login import UserMixin
-
 from app.models.gift import Gift
 from app.models.wish import Wish
 from app.spider.fisher_book import FisherBook
@@ -52,6 +51,7 @@ class User(UserMixin, Base):
     def can_save_to_list(self, isbn):
         if is_isbn_or_kw(isbn) != 'isbn':
             return False
+            
         fisher_book =FisherBook()
         fisher_book.search_by_isbn(isbn)
         if not fisher_book.first:
