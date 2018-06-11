@@ -20,7 +20,7 @@ class SQLALchemy(_SQLALchemy):
 			self.session.rollback()
 			raise e
 
-db = SQLAlchemy()
+db = SQLALchemy()
 
 class Base(db.Model):
     __abstract__ = True
