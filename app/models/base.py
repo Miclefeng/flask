@@ -5,7 +5,7 @@
 # Created Time: 2018/6/7 23:06
 #=============================================================
 # coding:utf8
-from flask_sqlalchemy import SQLAlchemy as _SQLALchemy
+from flask_sqlalchemy import SQLAlchemy as _SQLALchemy, BaseQuery
 from sqlalchemy import Column, Integer, SmallInteger
 from contextlib import contextmanager
 from datetime import datetime
@@ -21,7 +21,16 @@ class SQLALchemy(_SQLALchemy):
 			self.session.rollback()
 			raise e
 
-db = SQLALchemy()
+
+class Query(BaseQuery):
+    def filter_by(self, **kwargs):
+        # kwargs is dict
+        if 'status' not in kwargs.keys():
+            kwargs['status'] = 1
+        return super(Query, self).filter_by(**kwargs)
+
+db = SQLALchemy(query_class=Query)
+
 
 class Base(db.Model):
     __abstract__ = True
