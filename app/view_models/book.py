@@ -17,6 +17,8 @@ class BookViewModel:
         self.summary = fisher_book['summary']
         self.image = fisher_book['image']
         self.isbn = fisher_book['isbn']
+        self.pubdate = fisher_book['pubdate']
+        self.binding = fisher_book['binding']
 
     # 使用属性访问的方式调用函数
     # 数据描述对象的特征，方法描述对象的行为
