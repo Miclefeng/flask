@@ -5,10 +5,11 @@
 # Created Time: 2018/6/7 23:07
 #=============================================================
 # coding:utf8
-from sqlalchemy import Column, Integer, ForeignKey, Boolean, String
+from sqlalchemy import Column, Integer, ForeignKey, Boolean, String, desc
 from sqlalchemy.orm import relationship
 from app.models.base import Base
 from flask import current_app
+from app.spider.fisher_book import FisherBook
 
 
 class Gift(Base):
@@ -20,10 +21,19 @@ class Gift(Base):
     # bid = Column(Integer, ForeignKey('book.id')
     launched = Column(Boolean, default=False)
 
-    def recent(self):
+    @property
+    def book(self):
+        fisher_book = FisherBook()
+        fisher_book.search_by_isbn(self.isbn)
+        return fisher_book.first
+
+    # 对象代表一个礼物，具体的事物
+    # 类代表这个事物，是抽象的，不是具体的“一个”
+    @classmethod
+    def recent(cls):
         recent_gift = Gift.query.filter_by(
             launched=False).group_by(
             Gift.isbn).order_by(
-            Gift.create_time).limit(
+            desc(Gift.create_time)).limit(
             current_app.config['RECENT_BOOK_COUNT']).distinct().all()
         return recent_gift
