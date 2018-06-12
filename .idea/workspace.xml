@@ -27,7 +27,7 @@
       <file leaf-file-name="wish.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/wish.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
+            <state relative-caret-position="228">
               <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
               <folding>
                 <element signature="e#241#308#0" expanded="true" />
@@ -39,7 +39,7 @@
       <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="646">
               <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
             </state>
           </provider>
@@ -48,8 +48,8 @@
       <file leaf-file-name="book.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/web/book.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="110" column="29" lean-forward="true" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="29" />
+            <state relative-caret-position="1900">
+              <caret line="110" column="29" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -57,8 +57,8 @@
       <file leaf-file-name="trade.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view_models/trade.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="209">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -67,9 +67,33 @@
         <entry file="file://$PROJECT_DIR$/app/models/gift.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="570">
-              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+              <caret line="37" column="170" selection-start-line="37" selection-start-column="170" selection-end-line="37" selection-end-column="170" />
               <folding>
-                <element signature="e#241#308#0" expanded="true" />
+                <element signature="e#241#320#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fisher_book.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/spider/fisher_book.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+              <folding>
+                <element signature="e#266#295#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/web/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#46#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,12 +102,8 @@
       <file leaf-file-name="book_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/book_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
+            <state relative-caret-position="1938">
               <caret line="102" column="59" selection-start-line="102" selection-start-column="59" selection-end-line="102" selection-end-column="59" />
-              <folding>
-                <element signature="e#551#577#0#HTML" expanded="true" />
-                <element signature="e#2301#2326#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -91,11 +111,8 @@
       <file leaf-file-name="gift.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/web/gift.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
+            <state relative-caret-position="247">
               <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -144,12 +161,12 @@
         <option value="$PROJECT_DIR$/app/models/base.py" />
         <option value="$PROJECT_DIR$/app/__init__.py" />
         <option value="$PROJECT_DIR$/app/forms/auth.py" />
-        <option value="$PROJECT_DIR$/app/web/main.py" />
         <option value="$PROJECT_DIR$/app/web/auth.py" />
         <option value="$PROJECT_DIR$/app/models/wish.py" />
         <option value="$PROJECT_DIR$/app/web/gift.py" />
         <option value="$PROJECT_DIR$/app/models/user.py" />
         <option value="$PROJECT_DIR$/app/view_models/trade.py" />
+        <option value="$PROJECT_DIR$/app/web/main.py" />
         <option value="$PROJECT_DIR$/app/models/gift.py" />
       </list>
     </option>
@@ -174,7 +191,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -203,7 +219,7 @@
               <item name="flask" type="b2602c69:ProjectViewProjectNode" />
               <item name="flask" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="view_models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="flask" type="b2602c69:ProjectViewProjectNode" />
@@ -215,6 +231,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -411,20 +428,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1527005987006</updated>
-    </task>
-    <task id="LOCAL-00011" summary="newchangelist">
-      <created>1528045520898</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1528045520898</updated>
-    </task>
-    <task id="LOCAL-00012" summary="newchangelist">
-      <created>1528215895412</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1528215895412</updated>
     </task>
     <task id="LOCAL-00013" summary="newchangelist">
       <created>1528216001289</created>
@@ -755,7 +758,21 @@
       <option name="project" value="LOCAL" />
       <updated>1528811895475</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="newchangelist">
+      <created>1528812623759</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1528812623759</updated>
+    </task>
+    <task id="LOCAL-00061" summary="newchangelist">
+      <created>1528813700375</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1528813700375</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -769,7 +786,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32929516" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32929516" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17413972" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17726798" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="4" />
@@ -981,13 +998,6 @@
         <state relative-caret-position="-171" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view_models/book.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/BaiduNetdiskDownload/imooc/2、PYTHON/python Flask 高级编程/最新代码/fisher(非课程同步代码，课程同步代码将在课程完成后更新）.zip等多个文件/fisher(非课程同步代码，课程同步代码将在课程完成后更新）/app/models/user.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="684">
@@ -1043,13 +1053,6 @@
         <state relative-caret-position="-399" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/web/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Python3/Lib/site-packages/flask_login/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-608">
@@ -1097,7 +1100,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/wish.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
+        <state relative-caret-position="228">
           <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
           <folding>
             <element signature="e#241#308#0" expanded="true" />
@@ -1107,17 +1110,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/web/gift.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
+        <state relative-caret-position="247">
           <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/book_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1938">
+          <caret line="102" column="59" selection-start-line="102" selection-start-column="59" selection-end-line="102" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view_models/trade.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view_models/book.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/web/book.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1900">
+          <caret line="110" column="29" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/spider/fisher_book.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
+        <state relative-caret-position="399">
           <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
           <folding>
             <element signature="e#266#295#0" expanded="true" />
@@ -1125,44 +1160,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.py">
+    <entry file="file://$PROJECT_DIR$/app/web/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/book_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="102" column="59" selection-start-line="102" selection-start-column="59" selection-end-line="102" selection-end-column="59" />
+        <state relative-caret-position="171">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
           <folding>
-            <element signature="e#551#577#0#HTML" expanded="true" />
-            <element signature="e#2301#2326#0#HTML" expanded="true" />
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/web/book.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="110" column="29" lean-forward="true" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view_models/trade.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/gift.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
-          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+          <caret line="37" column="170" selection-start-line="37" selection-start-column="170" selection-end-line="37" selection-end-column="170" />
           <folding>
-            <element signature="e#241#308#0" expanded="true" />
+            <element signature="e#241#320#0" expanded="true" />
           </folding>
         </state>
       </provider>
