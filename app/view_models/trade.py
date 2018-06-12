@@ -8,8 +8,7 @@ class TradeInfo:
 
 	def __parse(self, goods):
 		self.total = len(goods)
-		# self.trades = [self.__map_to_single(single) for single in goods]
-		self.trades = [lambda single: __map_to_single(single) for single in goods]
+		self.trades = [self.__map_to_single(single) for single in goods]
 
 	def __map_to_single(self, single):
 		if single.create_datetime:
