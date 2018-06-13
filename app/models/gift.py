@@ -8,6 +8,7 @@
 from sqlalchemy import Column, Integer, ForeignKey, Boolean, String, desc, func
 from sqlalchemy.orm import relationship
 from app.models.base import Base, db
+from app.models.wish import Wish
 from flask import current_app
 from app.spider.fisher_book import FisherBook
 

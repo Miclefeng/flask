@@ -9,8 +9,6 @@ from flask_sqlalchemy import SQLAlchemy as _SQLALchemy, BaseQuery
 from sqlalchemy import Column, Integer, SmallInteger
 from contextlib import contextmanager
 from datetime import datetime
-from app.models.wish import Wish
-from app.models.gift import Gift
 
 
 class SQLALchemy(_SQLALchemy):
