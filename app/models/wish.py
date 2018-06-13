@@ -9,7 +9,6 @@ from sqlalchemy import Column, Integer, ForeignKey, Boolean, String, desc, func
 from sqlalchemy.orm import relationship
 from app.spider.fisher_book import FisherBook
 from app.models.base import Base, db
-from app.models.gift import Gift
 
 
 class Wish(Base):
@@ -34,6 +33,7 @@ class Wish(Base):
 
     @classmethod
     def get_gift_counts(cls, isbn_list):
+        from app.models.gift import Gift
         count_list = db.session.query(func.count(Gift.id), Gift.isbn).filter(
             Gift.launched == False,
             Gift.isbn.in_(isbn_list),
