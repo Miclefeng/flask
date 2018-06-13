@@ -1,9 +1,9 @@
-#=============================================================
+# =============================================================
 # File Name: user.py
 # Author: miclefeng
 # mail: miclefengzss@163.com
 # Created Time: 2018/6/7 23:06
-#=============================================================
+# =============================================================
 # coding:utf8
 from flask_sqlalchemy import SQLAlchemy as _SQLALchemy, BaseQuery
 from sqlalchemy import Column, Integer, SmallInteger
@@ -12,14 +12,14 @@ from datetime import datetime
 
 
 class SQLALchemy(_SQLALchemy):
-	@contextmanager
-	def auto_commit(self):
-		try:
-			yield
-			self.session.commit()
-		except Exception as e:
-			self.session.rollback()
-			raise e
+    @contextmanager
+    def auto_commit(self):
+        try:
+            yield
+            self.session.commit()
+        except Exception as e:
+            self.session.rollback()
+            raise e
 
 
 class Query(BaseQuery):
@@ -28,6 +28,7 @@ class Query(BaseQuery):
         if 'status' not in kwargs.keys():
             kwargs['status'] = 1
         return super(Query, self).filter_by(**kwargs)
+
 
 db = SQLALchemy(query_class=Query)
 
@@ -38,7 +39,7 @@ class Base(db.Model):
     status = Column(SmallInteger, default=1)
 
     def __init__(self):
-    	self.create_time = int(datetime.now().timestamp())
+        self.create_time = int(datetime.now().timestamp())
 
     def set_attrs(self, attrs_dict):
         for key, value in attrs_dict.items():
