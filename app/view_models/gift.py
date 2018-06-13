@@ -26,8 +26,8 @@ class MyGifts:
     def __matching(self, gift):
         count = 0
         for wish_count in self.__wish_count_list:
-            if wish_count.isbn == gift.isbn:
-                count = wish_count.count
+            if wish_count['isbn'] == gift.isbn:
+                count = wish_count['count']
                 break
         r = {
             'id': gift.id,
