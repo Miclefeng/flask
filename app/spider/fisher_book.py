@@ -26,11 +26,10 @@ class FisherBook:
         res = HTTP.get(url)
         self.__fill_single(res)
 
-    @classmethod
-    def search_by_keyword(cls, keyword, page=1):
-        url = cls.keyword_url.format(keyword, current_app.config['PAGESIZE'], cls.calculate_start(page))
+    def search_by_keyword(self, keyword, page=1):
+        url = self.keyword_url.format(keyword, current_app.config['PAGESIZE'], self.calculate_start(page))
         res = HTTP.get(url)
-        cls.__fill_collection(res)
+        self.__fill_collection(res)
 
     @staticmethod
     def calculate_start(page):
