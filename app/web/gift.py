@@ -32,7 +32,7 @@ def save_to_gifts(isbn):
             db.session.add(gift)
     #     db.session.commit()
     # except Exception as e:
-    # 	# flask('{}'.format(e))
+    # 	# flash('{}'.format(e))
     # 	db.session.rollback()
     # 	raise e
     else:
