@@ -30,12 +30,15 @@ class Gift(Base):
 
     @classmethod
     def get_user_gifts(cls, uid):
-        gifts = Gift.query.filter_by(uid=uid, launched=False).order_by(desc(Gift.create_time)).all()
+        gifts = Gift.query.filter_by(uid=uid, launched=False, status=1).order_by(desc(Gift.create_time)).all()
         return gifts
 
     @classmethod
     def get_wish_counts(cls, isbn_list):
-        count_list = db.session.query(func.count(Wish.id), Wish.isbn).filter(Wish.launched == False, Wish.isbn.in_(isbn_list), Wish.status == 1).group_by(Wish.isbn).all()
+        count_list = db.session.query(func.count(Wish.id), Wish.isbn).filter(
+            Wish.launched == False,
+            Wish.isbn.in_(isbn_list),
+            Wish.status == 1).group_by(Wish.isbn).all()
         return [{'count' : w[0], 'isbn': w[1]} for w in count_list]
 
     # 对象代表一个礼物，具体的事物
