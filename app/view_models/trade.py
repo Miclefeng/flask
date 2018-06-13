@@ -41,9 +41,9 @@ class MyTrades:
 				count = trade_count['count']
 				break
 
-		r = {
+		res = {
 			'wishes_count': count,
 			'book': BookViewModel(trade.book),
 			'id': trade.id
         }
-        return r
+        return res
