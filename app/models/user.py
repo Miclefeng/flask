@@ -34,7 +34,6 @@ class User(UserMixin, Base):
     _password = Column('password', String(128))
     wx_open_id = Column(String(48))
     wx_name = Column(String(32))
-
     # gifts = relationship('Gift')
 
     # 数据的预处理 getter setter
@@ -71,9 +70,10 @@ class User(UserMixin, Base):
             return True
         else:
             return False
+            
     def generate_token(self, expire=600):
-            s = Serializer(current_app.config['SECRET_KEY'], expire)
-            return s.dumps({'id': self.id}).decode('utf-8')
+        s = Serializer(current_app.config['SECRET_KEY'], expire)
+        return s.dumps({'id': self.id}).decode('utf-8')
 
     @staticmethod
     def reset_password(token, new_password):
