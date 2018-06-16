@@ -70,7 +70,7 @@ class User(UserMixin, Base):
             return True
         else:
             return False
-            
+
     def generate_token(self, expire=600):
         s = Serializer(current_app.config['SECRET_KEY'], expire)
         return s.dumps({'id': self.id}).decode('utf-8')
@@ -83,8 +83,12 @@ class User(UserMixin, Base):
         except:
             return False
         uid = data.get('id')
+        print('\n\n\n')
+        print(uid)
         with db.auto_commit():
             user = User.query.get(uid)
+            print(user)
+            print('\n\n\n')
             user.password = new_password
         return True
 
