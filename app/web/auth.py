@@ -53,7 +53,7 @@ def forget_password_request():
 @web.route('/reset/password/<token>', methods=['GET', 'POST'])
 def forget_password(token):
     form = ResetPasswordForm(request.form)
-    if request.methon =='POST' and form.validate():
+    if request.method =='POST' and form.validate():
         success = User.reset_password(token, form.password1.data)
         if success:
             flash('你的密码已更新，请使用新密码登录')
