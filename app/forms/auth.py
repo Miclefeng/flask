@@ -6,7 +6,7 @@
 #=============================================================
 # coding:utf8
 from wtforms import Form, StringField, PasswordField
-from wtforms.validators import DataRequired, Length, Email, ValidationError
+from wtforms.validators import DataRequired, Length, Email, ValidationError, EqualTo
 from app.models.user import User
 
 
@@ -29,3 +29,8 @@ class RegisterForm(LoginForm):
         # db.session.
         if User.query.filter_by(nickname=field.data).first():
             raise ValidationError('用户昵称已被注册')
+
+
+class ResetPasswordForm(Form):
+    passwd1 = PasswordField(validators=[DataRequired(), length=(6, 24, message='密码需要在6到32个字符之间'), EqualTo('passwd2', message='两次输入的密码不相同')])
+    paswd2 = PasswordField(validators=[DataRequired(), length=(6, 24)])
