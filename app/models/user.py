@@ -1,9 +1,9 @@
-#=============================================================
+# =============================================================
 # File Name: user.py
 # Author: miclefeng
 # mail: miclefengzss@163.com
 # Created Time: 2018/6/7 23:07
-#=============================================================
+# =============================================================
 # coding:utf8
 from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -15,7 +15,7 @@ from flask_login import UserMixin
 from app.models.gift import Gift
 from app.models.wish import Wish
 from app.spider.fisher_book import FisherBook
-from itsdangerous import TimedJSONWebSignatrueSerializer as Serializer
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
 
 
@@ -34,6 +34,7 @@ class User(UserMixin, Base):
     _password = Column('password', String(128))
     wx_open_id = Column(String(48))
     wx_name = Column(String(32))
+
     # gifts = relationship('Gift')
 
     # 数据的预处理 getter setter
@@ -53,8 +54,8 @@ class User(UserMixin, Base):
     def can_save_to_list(self, isbn):
         if is_isbn_or_kw(isbn) != 'isbn':
             return False
-            
-        fisher_book =FisherBook()
+
+        fisher_book = FisherBook()
         fisher_book.search_by_isbn(isbn)
         if not fisher_book.first:
             return False
@@ -70,23 +71,22 @@ class User(UserMixin, Base):
             return True
         else:
             return False
-
-        def generate_token(self, expire=600):
+    def generate_token(self, expire=600):
             s = Serializer(current_app.config['SECRET_KEY'], expire)
             return s.dumps({'id': self.id}).decode('utf-8')
 
-        @staticmethod
-        def reset_password(token, new_password):
-            s = Serializer(current_app.config['SECRET_KEY'])
-            try:
-                data = s.loads(token).encode('utf-8')
-            except:
-                return False
-            uid = data.get('id')
-            with db.auto_commit():
-                user = User.query.get(uid)
-                user.password = new_password
-            return True
+    @staticmethod
+    def reset_password(token, new_password):
+        s = Serializer(current_app.config['SECRET_KEY'])
+        try:
+            data = s.loads(token).encode('utf-8')
+        except:
+            return False
+        uid = data.get('id')
+        with db.auto_commit():
+            user = User.query.get(uid)
+            user.password = new_password
+        return True
 
 
 @login_manager.user_loader
