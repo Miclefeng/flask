@@ -32,6 +32,6 @@ class RegisterForm(LoginForm):
 
 
 class ResetPasswordForm(Form):
-    passwd1 = PasswordField(validators=[DataRequired(), Length(6, 24, message='密码需要在6到32个字符之间'), EqualTo('passwd2', message='两次输入的密码不相同')])
+    password1 = PasswordField(validators=[DataRequired(), Length(6, 24, message='密码需要在6到32个字符之间'), EqualTo('password2', message='两次输入的密码不相同')])
 
-    passwd2 = PasswordField(validators=[DataRequired(), Length(6, 24)])
+    password2 = PasswordField(validators=[DataRequired(), Length(6, 24)])
