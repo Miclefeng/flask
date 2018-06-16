@@ -70,7 +70,7 @@ class User(UserMixin, Base):
             return True
         else:
             return False
-            
+
     def generate_token(self, expire=600):
         s = Serializer(current_app.config['SECRET_KEY'], expire)
         return s.dumps({'id': self.id}).decode('utf-8')
@@ -79,8 +79,8 @@ class User(UserMixin, Base):
     def reset_password(token, new_password):
         s = Serializer(current_app.config['SECRET_KEY'])
         try:
-            data = s.loads(token).encode('utf-8')
-        except:
+            data = s.loads(token.encode('utf-8'))
+        except Exception as e:
             return False
         uid = data.get('id')
         with db.auto_commit():
