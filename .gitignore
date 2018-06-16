@@ -1,2 +1,4 @@
 /app/secure*
 /app/secure.py
+.idea
+.idea/*
