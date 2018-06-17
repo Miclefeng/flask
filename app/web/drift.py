@@ -53,8 +53,8 @@ def save_drift(drift_form, current_gift):
         # 把drift_form下的字段copy到Drift下
         drift_form.populate_obj(drift)
         drift.gift_id = current_gift.id
-        drift.requester_id = current_gift.requester_id
-        drift.requester_nickname = current_gift.requester_nickname
+        drift.requester_id = drift_form.requester_id.data
+        drift.requester_nickname = drift_form.requester_nickname.data
         drift.gifter_nickname = current_gift.user.nickname
         drift.gifter_id = current_gift.user.id
 
