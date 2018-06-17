@@ -51,6 +51,7 @@ def mailed_drift(did):
 def save_drift(drift_form, current_gift):
     with db.auto_commit():
         drift = Drift()
+
         # 把drift_form下的字段copy到Drift下
         drift_form.populate_obj(drift)
         drift.gift_id = current_gift.id
