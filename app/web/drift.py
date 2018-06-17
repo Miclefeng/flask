@@ -23,7 +23,7 @@ def send_drift(gid):
     form = DriftForm(request.form)
     if 'POST' == request.method and form.validate():
         save_drift(form, current_gift)
-        send_mail(current_gift.user.email, '有人想要一本书', 'email/get_gift', wisher=current_user, gift=current_gift)
+        send_mail(current_gift.user.email, '有人想要一本书', 'email/get_gift.html', wisher=current_user, gift=current_gift)
 
     gifter = current_gift.user.summary
     return render_template('drift.html', gifter=gifter, user_beans=current_user.beans, form=form)
