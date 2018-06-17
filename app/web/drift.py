@@ -77,5 +77,6 @@ def save_drift(drift_form, current_gift):
             current_user.beans -= 1
         else:
             raise('鱼豆不足')
+
         db.session.add(drift)
 
