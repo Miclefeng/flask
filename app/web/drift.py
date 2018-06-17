@@ -47,6 +47,7 @@ def redraw_drift(did):
 def mailed_drift(did):
     pass
 
+
 def save_drift(drift_form, current_gift):
     with db.auto_commit():
         drift = Drift()
