@@ -21,6 +21,9 @@ class Gift(Base):
     # bid = Column(Integer, ForeignKey('book.id')
     launched = Column(Boolean, default=False)
 
+    def is_yourself_gift(self, uid):
+        return True if self.uid == uid else False
+
     @property
     def book(self):
         fisher_book = FisherBook()

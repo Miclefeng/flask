@@ -5,13 +5,16 @@
 # Created Time: 2018/6/7 23:07
 # =============================================================
 # coding:utf8
-from sqlalchemy.orm import relationship
+from math import floor
+# from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import login_manager
+from app.libs.enums import PendingStatus
 from app.libs.helper import is_isbn_or_kw
 from app.models.base import Base, db
 from sqlalchemy import Column, Integer, String, Boolean, Float
 from flask_login import UserMixin
+from app.models.drift import Drift
 from app.models.gift import Gift
 from app.models.wish import Wish
 from app.spider.fisher_book import FisherBook
@@ -35,6 +38,15 @@ class User(UserMixin, Base):
     wx_open_id = Column(String(48))
     wx_name = Column(String(32))
     # gifts = relationship('Gift')
+
+    @property
+    def summary(self):
+        return dict(
+            nickname= self.nickname,
+            beans= self.beans,
+            email= self.email,
+            send_receive= str(self.send_counter) + '/' + str(self.receive_counter)
+        )
 
     # 数据的预处理 getter setter
     # 属性的读取
@@ -70,6 +82,13 @@ class User(UserMixin, Base):
             return True
         else:
             return False
+
+    def can_send_drift(self):
+        if self.beans < 1:
+            return False
+        success_gifts_count = Gift.query.filter_by(uid=self.id, launched=True).count()
+        success_receive_count = Drift.query.filter_by(requester_id=self.id, pending=PendingStatus.Success).count()
+        return True if floor(success_receive_count/ 2) <= floor(success_gifts_count) else False
 
     def generate_token(self, expire=600):
         s = Serializer(current_app.config['SECRET_KEY'], expire)
