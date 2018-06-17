@@ -50,5 +50,5 @@ class DriftCollection:
     def __parse(self, drifts, current_user_id):
         # for drift in drifts:
         #     temp = DriftViewModel(drift, current_user_id)
-        #     self.data.append(temp)
+        #     self.data.append(temp.data)
         return [DriftViewModel(drift, current_user_id).data for drift in drifts]
