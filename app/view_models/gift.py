@@ -13,6 +13,7 @@ MyGift = namedtuple('MyGift', ['id', 'book', 'wishes_count'])
 
 class MyGifts:
     def __init__(self, gifts_of_mine, wish_count_list):
+        self.gifts = {}
         self.__gifts_of_mine = gifts_of_mine
         self.__wish_count_list = wish_count_list
         self.gifts = self.__parse()
