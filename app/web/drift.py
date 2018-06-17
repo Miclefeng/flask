@@ -69,4 +69,3 @@ def save_drift(drift_form, current_gift):
         else:
             raise('鱼豆不足')
 
-
