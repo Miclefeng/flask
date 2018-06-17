@@ -8,6 +8,7 @@
 from app import mail
 from flask_mail import Message
 from flask import current_app, render_template
+from threading import Thread
 
 
 def send_mail(to, subject, template, **kwargs):
@@ -16,4 +17,15 @@ def send_mail(to, subject, template, **kwargs):
     	sender=current_app.config['MAIL_USERNAME'],
     	recipients=[to])
     msg.html = render_template(template, **kwargs)
-    mail.send(msg)
+    # current_app 代理对象通过线程的ID去找flask核心对象,本身就做了线程隔离
+    # 获取flask的核心对象
+    app = current_app._get_current_object()
+    thread = Thread(target=send_async_email, args=[app, msg])
+    thread.start()
+
+def send_async_email(app, msg):
+	with app.app_context():
+		try:
+			mail.send(msg)
+		except Exception as e:
+			pass
