@@ -61,6 +61,7 @@ def save_drift(drift_form, current_gift):
         drift.gifter_id = current_gift.user.id
 
         book = current_gift.book
+        drift.isbn = book['isbn']
         drift.book_title = book['title']
         drift.book_author = book['author']
         drift.book_img = book['image']
