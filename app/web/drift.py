@@ -8,6 +8,7 @@ from app.models.base import db
 from app.models.drift import Drift
 from app.models.gift import Gift
 from app.models.user import User
+from app.models.wish import Wish
 from app.view_models.drift import DriftCollection
 from . import web
 
@@ -66,8 +67,17 @@ def redraw_drift(did):
 
 
 @web.route('/drift/<int:did>/mailed')
+@login_required
 def mailed_drift(did):
-    pass
+    with db.auto_commit():
+        drift = Drift.query.filter_by(gifter_id=current_user.id, id=did).first_or_404()
+        drift.pending = PendingStatus.Success
+        current_user.beans += 1
+        gift = Gift.query.filter_by(id=drift.gift_id).first_or_404()
+        gift.launched = True
+        wish = Wish.query.filter_by(isbn=drift.isbn, uid=drift.requester_id, launched=False).first_or_404()
+        wish.launched = True
+    return redirect(url_for('web.pending'))
 
 
 def save_drift(drift_form, current_gift):
