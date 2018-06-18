@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for, flash
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, current_user
 from app.forms.auth import RegisterForm, LoginForm, EmailForm, ResetPasswordForm
 from app.models.base import db
 from app.models.user import User
@@ -23,6 +23,9 @@ def register():
 
 @web.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('web.index'))
+
     form = LoginForm(request.form)
     if 'POST' == request.method and form.validate():
         user = User.query.filter_by(email=form.email.data).first()
