@@ -18,7 +18,7 @@ class PendingStatus(Enum):
     @classmethod
     def pending_str(cls, status, key):
         key_map = {
-            cls.Waitind: {
+            cls.Waiting: {
                 'requester': '等待对方邮寄',
                 'gifter': '等待你邮寄'
             },
