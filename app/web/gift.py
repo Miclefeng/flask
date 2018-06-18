@@ -52,6 +52,6 @@ def redraw_from_gifts(gid):
         flash('这个礼物正处于交易状态，请前往鱼漂完成交易')
     else:
         with db.auto_commit():
-            current_user.beans -= current_app.config['BEANS_UPLOAD_BOOK']
+            current_user.beans -= current_app.config['BEANS_UPLOAD_ONE_BOOK']
             gift.delete()
     return redirect(url_for('web.my_gifts'))
