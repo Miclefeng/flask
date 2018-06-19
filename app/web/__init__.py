@@ -7,6 +7,7 @@
 # coding:utf8
 from flask import Blueprint, render_template
 
+
 # 蓝图 blueprint
 web = Blueprint('web', __package__, template_folder='../templates')
 
