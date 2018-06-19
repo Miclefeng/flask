@@ -102,12 +102,8 @@ class User(UserMixin, Base):
         except Exception as e:
             return False
         uid = data.get('id')
-        print('\n\n\n')
-        print(uid)
         with db.auto_commit():
             user = User.query.get(uid)
-            print(user)
-            print('\n\n\n')
             user.password = new_password
         return True
 
